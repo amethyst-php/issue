@@ -21,4 +21,12 @@ class Issue extends Model implements EntityContract
         $this->ini('amethyst.issue.data.issue');
         parent::__construct($attributes);
     }
+
+    /**
+     * Get all of the owning issuable models.
+     */
+    public function issuable()
+    {
+        return $this->morphTo();
+    }
 }

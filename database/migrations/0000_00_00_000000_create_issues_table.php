@@ -16,6 +16,8 @@ class CreateIssuesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
+            $table->string('issuable_type');
+            $table->integer('issuable_id');
             $table->timestamps();
             $table->softDeletes();
         });

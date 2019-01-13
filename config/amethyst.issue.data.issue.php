@@ -11,4 +11,11 @@ return [
     'authorizer' => Railken\Amethyst\Authorizers\IssueAuthorizer::class,
     'faker'      => Railken\Amethyst\Fakers\IssueFaker::class,
     'manager'    => Railken\Amethyst\Managers\IssueManager::class,
+    'attributes' => [
+        'issuable' => [
+            'options' => [
+                Railken\Amethyst\Models\Foo::class => Railken\Amethyst\Managers\FooManager::class,
+            ],
+        ],
+    ],
 ];
