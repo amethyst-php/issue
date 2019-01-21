@@ -22,11 +22,13 @@ class IssueSchema extends Schema
             Attributes\TextAttribute::make('name')
                 ->setRequired(true),
             Attributes\LongTextAttribute::make('description'),
-            Attributes\EnumAttribute::make('issuable_type', array_keys($issuableConfig)),
+            Attributes\EnumAttribute::make('issuable_type', array_keys($issuableConfig))
+                ->setRequired(true),
             Attributes\MorphToAttribute::make('issuable_id')
                 ->setRelationKey('issuable_type')
                 ->setRelationName('issuable')
-                ->setRelations($issuableConfig),
+                ->setRelations($issuableConfig)
+                ->setRequired(true),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),
