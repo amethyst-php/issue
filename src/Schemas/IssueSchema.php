@@ -22,6 +22,9 @@ class IssueSchema extends Schema
             Attributes\TextAttribute::make('name')
                 ->setRequired(true),
             Attributes\LongTextAttribute::make('description'),
+            \Railken\Amethyst\Attributes\TaxonomyAttribute::make('status_id', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'))
+                ->setRelationName('status')
+                ->setRequired(true),
             Attributes\EnumAttribute::make('issuable_type', array_keys($issuableConfig))
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('issuable_id')

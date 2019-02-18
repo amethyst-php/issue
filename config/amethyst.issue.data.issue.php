@@ -12,6 +12,9 @@ return [
     'faker'      => Railken\Amethyst\Fakers\IssueFaker::class,
     'manager'    => Railken\Amethyst\Managers\IssueManager::class,
     'attributes' => [
+        'status' => [
+            'taxonomy' => 'issue-status',
+        ],
         'issuable' => [
             'options' => [
                 Railken\Amethyst\Models\Foo::class => Railken\Amethyst\Managers\FooManager::class,

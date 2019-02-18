@@ -23,6 +23,14 @@ class Issue extends Model implements EntityContract
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function status()
+    {
+        return $this->belongsTo(Taxonomy::class);
+    }
+
+    /**
      * Get all of the owning issuable models.
      */
     public function issuable()
