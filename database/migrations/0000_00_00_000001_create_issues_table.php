@@ -18,8 +18,8 @@ class CreateIssuesTable extends Migration
             $table->text('description')->nullable();
             $table->integer('status_id')->unsigned();
             $table->foreign('status_id')->references('id')->on(Config::get('amethyst.taxonomy.data.taxonomy.table'));
-            $table->string('issuable_type');
-            $table->integer('issuable_id');
+            $table->string('issuable_type')->nullable();
+            $table->integer('issuable_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
