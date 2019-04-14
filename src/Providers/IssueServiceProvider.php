@@ -23,7 +23,7 @@ class IssueServiceProvider extends CommonServiceProvider
         app('amethyst.taxonomy')->add('issue.status', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'), [
             'open',
             'working',
-            'closed'
+            'closed',
         ]);
     }
 }
