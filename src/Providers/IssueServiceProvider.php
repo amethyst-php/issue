@@ -21,10 +21,9 @@ class IssueServiceProvider extends CommonServiceProvider
         });
 
         app('amethyst.taxonomy')->add('issue.status', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'), [
-            'pending',
-            'started',
-            'suspended',
-            'canceled',
+            'open',
+            'working',
+            'closed'
         ]);
     }
 }
