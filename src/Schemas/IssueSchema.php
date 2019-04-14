@@ -2,7 +2,6 @@
 
 namespace Railken\Amethyst\Schemas;
 
-use Illuminate\Support\Facades\Config;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
@@ -15,21 +14,19 @@ class IssueSchema extends Schema
      */
     public function getAttributes()
     {
-        $issuableConfig = Config::get('amethyst.issue.data.issue.attributes.issuable.options');
-
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('name')
                 ->setRequired(true),
             Attributes\LongTextAttribute::make('description'),
-            \Railken\Amethyst\Attributes\TaxonomyAttribute::make('status_id', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'))
+            \Railken\Amethyst\Attributes\TaxonomyAttribute::make('status_id', app('amethyst.taxonomy')->get('issue.status'))
                 ->setRelationName('status')
                 ->setRequired(true),
-            Attributes\EnumAttribute::make('issuable_type', array_keys($issuableConfig)),
+            Attributes\EnumAttribute::make('issuable_type', app('amethyst')->getMorphListable('issue', 'issuable')),
             Attributes\MorphToAttribute::make('issuable_id')
                 ->setRelationKey('issuable_type')
                 ->setRelationName('issuable')
-                ->setRelations($issuableConfig),
+                ->setRelations(app('amethyst')->getMorphRelationable('issue', 'issuable')),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

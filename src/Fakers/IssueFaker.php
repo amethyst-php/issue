@@ -21,7 +21,7 @@ class IssueFaker extends Faker
         $bag->set('description', $faker->text);
         $bag->set('status', TaxonomyFaker::make()->parameters()->toArray());
         $bag->set('status.parent.name', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'));
-        $bag->set('issuable_type', \Railken\Amethyst\Models\Foo::class);
+        $bag->set('issuable_type', 'foo');
         $bag->set('issuable', FooFaker::make()->parameters()->toArray());
 
         return $bag;

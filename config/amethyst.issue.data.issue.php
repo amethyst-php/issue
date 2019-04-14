@@ -16,9 +16,7 @@ return [
             'taxonomy' => 'issue-status',
         ],
         'issuable' => [
-            'options' => [
-                Railken\Amethyst\Models\Foo::class => Railken\Amethyst\Managers\FooManager::class,
-            ],
+            'options' => [],
         ],
     ],
 ];
