@@ -16,14 +16,22 @@ class IssueServiceProvider extends CommonServiceProvider
         parent::register();
         $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
 
-        \Illuminate\Database\Eloquent\Builder::macro('issues', function (): MorphMany {
-            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Issue::class, 'issue', 'issuable');
-        });
-
         app('amethyst.taxonomy')->add('issue.status', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'), [
             'open',
             'working',
             'closed',
         ]);
+    }
+
+    /**
+     * @inherit
+     */
+    public function boot()
+    {
+        parent::boot();
+
+        \Illuminate\Database\Eloquent\Builder::macro('issues', function (): MorphMany {
+            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Issue::class, 'issue', 'issuable');
+        });
     }
 }
