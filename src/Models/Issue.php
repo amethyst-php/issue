@@ -29,7 +29,7 @@ class Issue extends Model implements EntityContract
      */
     public function status(): BelongsTo
     {
-        return $this->belongsTo(Taxonomy::class);
+        return $this->belongsTo(config('amethyst.taxonomy.data.taxonomy.model'));
     }
 
     /**
