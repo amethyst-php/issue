@@ -2,7 +2,6 @@
 
 namespace Railken\Amethyst\Providers;
 
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Common\CommonServiceProvider;
 
