@@ -29,9 +29,5 @@ class IssueServiceProvider extends CommonServiceProvider
     public function boot()
     {
         parent::boot();
-
-        \Illuminate\Database\Eloquent\Builder::macro('issues', function (): MorphMany {
-            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Issue::class, 'issue', 'issuable');
-        });
     }
 }
