@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/amethyst-issue/">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik|Open Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src='https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <link href='style.css' rel='stylesheet'>
+</head>
+<body>
+  <header>
+    <a class="btn purple">Switch to frontend docs</a>
+  </header>
+  <main>
+    <div class="sidebar" style='display: flex'>
+      <div style='flex-grow: 1'>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li><a href=''>Introduction</a></li>
+                    <li><a href='entity/issue/'>issue</a></li>
+                  </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="content">
+        <h2>Result</h2>
+
+<p>Once you've got the result you should always check if an error has occurred, if not, retrieve the resource.</p>
+
+<pre><code class="php">use Railken\Amethyst\Managers\IssueManager;
+
+$manager = new IssueManager();
+
+$result = $manager-&gt;create([
+    "name" =&gt; "Ms. Esperanza Zulauf",
+    "description" =&gt; "Aspernatur quia in architecto est. Id corrupti debitis accusamus vel. Vero nobis quis necessitatibus voluptas facere vel laudantium. Eos dicta ullam nobis. Omnis iusto ut distinctio.",
+    "status" =&gt; [
+        "name" =&gt; "Dr. Earl Leannon I",
+        "description" =&gt; "Nulla possimus eius dignissimos dignissimos necessitatibus qui. Assumenda minima modi qui quasi.",
+        "enabled" =&gt; 1,
+        "weight" =&gt; 1,
+        "parent" =&gt; [
+            "name" =&gt; "issue-status",
+            "description" =&gt; "Ut est quae eos porro. Iure est suscipit sint soluta neque inventore. Dolorum ipsum sed placeat et non exercitationem est.",
+            "enabled" =&gt; 1,
+            "weight" =&gt; 1
+        ]
+    ],
+    "issuable_type" =&gt; "foo",
+    "issuable" =&gt; [
+        "name" =&gt; "Veronica Hettinger",
+        "description" =&gt; "Voluptatem ut incidunt laborum quia. Omnis nihil porro quo dolores inventore. Minima veniam rerum totam voluptas sed. Ut rem enim quo porro consequatur est.",
+        "bar" =&gt; [
+            "name" =&gt; "Madge Homenick",
+            "description" =&gt; "Laboriosam beatae iure et ratione. Deleniti sint adipisci aliquid ea. Voluptatum quisquam voluptatem aperiam non suscipit."
+        ]
+    ]
+]);
+
+if ($result-&gt;ok()) {
+
+    $resource = $result-&gt;getResource();
+
+} else {
+
+    // Loop through all errors
+    $result-&gt;getErrors()-&gt;map(function($error) {
+        return $error-&gt;toArray();
+    }))
+
+    // Retrieve an array of all errors
+    $result-&gt;getSimpleErrors();
+
+    /* The result is something like this:
+
+        [0] =&gt; Array
+            (
+                [code] =&gt; FIELD_NOT_DEFINED
+                [label] =&gt; field
+                [message] =&gt; The field is required
+                [value] =&gt;
+            )
+    */
+
+}
+</code></pre>
+
+<hr />
+
+<p><a href="index.html">Back</a></p>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
