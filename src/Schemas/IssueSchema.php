@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Schemas;
+namespace Amethyst\Schemas;
 
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
@@ -19,7 +19,7 @@ class IssueSchema extends Schema
             Attributes\TextAttribute::make('name')
                 ->setRequired(true),
             Attributes\LongTextAttribute::make('description'),
-            \Railken\Amethyst\Attributes\TaxonomyAttribute::make('status_id', app('amethyst.taxonomy')->get('issue.status'))
+            \Amethyst\Attributes\TaxonomyAttribute::make('status_id', app('amethyst.taxonomy')->get('issue.status'))
                 ->setRelationName('status')
                 ->setRequired(true),
             Attributes\EnumAttribute::make('issuable_type', app('amethyst')->getMorphListable('issue', 'issuable')),

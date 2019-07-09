@@ -1,26 +1,26 @@
 {
-    "name": "railken/amethyst-issue",
+    "name": "amethyst/issue",
     "type": "library",
     "keywords": ["laravel", "amethyst", "amethyst-issue", "issue"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "railken/amethyst-common": "0.1.*",
-        "railken/amethyst-taxonomy": "0.1.*"
+        "amethyst/common": "0.1.*",
+        "amethyst/taxonomy": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.1",
         "orchestra/testbench": "3.*",
-        "railken/amethyst-foo": "0.1.*"
+        "amethyst/foo": "0.1.*"
     },
     "autoload": {
         "psr-4" : {
-            "Railken\\Amethyst\\" : "src/"
+            "Amethyst\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": { 
-            "Railken\\Amethyst\\Tests\\": "tests/" 
+            "Amethyst\\Tests\\": "tests/" 
         }
     },
     "extra": {
@@ -30,7 +30,7 @@
         },
         "laravel": {
             "providers": [
-                "Railken\\Amethyst\\Providers\\IssueServiceProvider"
+                "Amethyst\\Providers\\IssueServiceProvider"
             ]
         }
     }

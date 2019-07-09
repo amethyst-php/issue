@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\Amethyst\Providers;
+namespace Amethyst\Providers;
 
 use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Common\CommonServiceProvider;
+use Amethyst\Common\CommonServiceProvider;
 
 class IssueServiceProvider extends CommonServiceProvider
 {
@@ -13,7 +13,7 @@ class IssueServiceProvider extends CommonServiceProvider
     public function register()
     {
         parent::register();
-        $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\TaxonomyServiceProvider::class);
 
         app('amethyst.taxonomy')->add('issue.status', Config::get('amethyst.issue.data.issue.attributes.status.taxonomy'), [
             'open',
