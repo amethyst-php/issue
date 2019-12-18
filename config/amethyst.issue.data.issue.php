@@ -13,7 +13,7 @@ return [
     'manager'    => Amethyst\Managers\IssueManager::class,
     'attributes' => [
         'status' => [
-            'taxonomy' => 'issue-status',
+            'taxonomy' => 'Issue Status',
         ],
         'issuable' => [
             'options' => [],
