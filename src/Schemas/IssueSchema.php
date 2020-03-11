@@ -22,7 +22,7 @@ class IssueSchema extends Schema
             \Amethyst\Attributes\TaxonomyAttribute::make('status_id', app('amethyst.taxonomy')->get('issue.status'))
                 ->setRelationName('status')
                 ->setRequired(true),
-            Attributes\EnumAttribute::make('issuable_type', app('amethyst')->getDataNames()),
+            \Amethyst\Core\Attributes\DataNameAttribute::make('issuable_type'),
             Attributes\MorphToAttribute::make('issuable_id')
                 ->setRelationKey('issuable_type')
                 ->setRelationName('issuable')
